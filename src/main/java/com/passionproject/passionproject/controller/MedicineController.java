@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,15 +25,18 @@ public class MedicineController {
     @Autowired
     private MedicineService medicineService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{id}")
-    public ResponseEntity<Medicine> getPerson(@PathVariable Integer id) {
+    public ResponseEntity<Medicine> getMedicine(@PathVariable Integer id) {
         return new ResponseEntity<>(medicineService.findOne(id), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/medicine")
     public ResponseEntity<List<Medicine>> getMedicineList() {
         return new ResponseEntity<>(medicineService.findAll(), HttpStatus.OK);
     }
+    @CrossOrigin(origins = "http://localhost:3000")
 @PostMapping
     public ResponseEntity<Medicine> createMedicine (@RequestBody Medicine p) {
         return new ResponseEntity<>(medicineService.save(p), HttpStatus.CREATED);
@@ -43,6 +47,7 @@ public class MedicineController {
         return "hello";
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/{id}")
     public ResponseEntity<Medicine> updatePerson(@PathVariable Integer id, @RequestBody Medicine p) {
         Medicine existingMed = medicineService.findOne(id);
@@ -56,7 +61,7 @@ public class MedicineController {
             return ResponseEntity.status(HttpStatus.OK).body(savedMed);
         }
     }
-
+@CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> DeletePerson(@PathVariable Integer id) {
             medicineService.delete(id); 
