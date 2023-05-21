@@ -49,7 +49,7 @@ public class MedicineController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/{id}")
-    public ResponseEntity<Medicine> updatePerson(@PathVariable Integer id, @RequestBody Medicine p) {
+    public ResponseEntity<Medicine> updateMedicine(@PathVariable Integer id, @RequestBody Medicine p) {
         Medicine existingMed = medicineService.findOne(id);
 
         p.setId(id);
@@ -63,7 +63,7 @@ public class MedicineController {
     }
 @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> DeletePerson(@PathVariable Integer id) {
+    public ResponseEntity<?> deleteMedicine(@PathVariable Integer id) {
             medicineService.delete(id); 
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();                            
     }
