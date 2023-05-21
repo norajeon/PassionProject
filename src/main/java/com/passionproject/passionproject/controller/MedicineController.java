@@ -42,11 +42,6 @@ public class MedicineController {
         return new ResponseEntity<>(medicineService.save(p), HttpStatus.CREATED);
     }
 
-    @GetMapping("/hello") 
-    public String home() {
-        return "hello";
-    }
-
     @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/{id}")
     public ResponseEntity<Medicine> updateMedicine(@PathVariable Integer id, @RequestBody Medicine p) {
