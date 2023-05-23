@@ -5,6 +5,8 @@ Once the user inputs a medication, the tool would recommend the best time of day
 
 The MVP would allow the user to type in each medication, separate them based on time and day, and remind the user once it's time to take the medication.
 
+This repo contains the backend which utilizes MySQL and Spring Boot. 
+
 
 Pre-Development UI
 
