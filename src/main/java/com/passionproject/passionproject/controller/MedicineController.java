@@ -25,24 +25,24 @@ public class MedicineController {
     @Autowired
     private MedicineService medicineService;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    // @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{id}")
     public ResponseEntity<Medicine> getMedicine(@PathVariable Integer id) {
         return new ResponseEntity<>(medicineService.findOne(id), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    // @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/medicine")
     public ResponseEntity<List<Medicine>> getMedicineList() {
         return new ResponseEntity<>(medicineService.findAll(), HttpStatus.OK);
     }
-    @CrossOrigin(origins = "http://localhost:3000")
+    // @CrossOrigin(origins = "http://localhost:3000")
 @PostMapping
     public ResponseEntity<Medicine> createMedicine (@RequestBody Medicine p) {
         return new ResponseEntity<>(medicineService.save(p), HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    // @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/{id}")
     public ResponseEntity<Medicine> updateMedicine(@PathVariable Integer id, @RequestBody Medicine p) {
         Medicine existingMed = medicineService.findOne(id);
@@ -56,7 +56,7 @@ public class MedicineController {
             return ResponseEntity.status(HttpStatus.OK).body(savedMed);
         }
     }
-@CrossOrigin(origins = "http://localhost:3000")
+// @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteMedicine(@PathVariable Integer id) {
             medicineService.delete(id); 
