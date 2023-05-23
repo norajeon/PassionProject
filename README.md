@@ -7,6 +7,8 @@ The MVP would allow the user to type in each medication, separate them based on 
 
 
 Pre-Development UI
+
+
 ![Medication Input Page](medicationinputpage.png)
 ![Pill Organizer Page](pillorganizerpage-1.png)
 ![Profile Page](profilepage-1.png)
